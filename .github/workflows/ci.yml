@@ -1,0 +1,201 @@
+name: Rom-Builder
+
+on:
+  push:
+
+jobs:
+  deploy-spes:
+    name: REDMI NOTE 11
+    runs-on: ubuntu-latest
+    if: github.actor == 'c3eru'
+    timeout-minutes: 340
+    steps:
+    - name: Clone Script..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          mkdir -p $HOME/script
+          cd $HOME/script
+          export device="spes"
+          rm -rf *
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/sync.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/building.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/upload.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/notif.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/$device/build_rom.sh
+
+    - name: Sync Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/sync.sh
+
+    - name: Building Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/building.sh
+
+    - name: Upload Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        command: |
+          bash $HOME/script/upload.sh
+
+    - name: Send notif..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          export owner="@mobxprjkt"
+          bash $HOME/script/notif.sh
+
+############################################################
+
+  deploy-rosy:
+    name: Redmi 5
+    runs-on: ubuntu-latest
+    if: github.actor == 'NFS86'
+    timeout-minutes: 340
+    steps:
+    - name: Clone Script..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          mkdir -p $HOME/script
+          cd $HOME/script
+          export device="rosy"
+          rm -rf *
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/sync.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/building.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/upload.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/notif.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/$device/build_rom.sh
+
+    - name: Sync Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/sync.sh
+
+    - name: Building Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/building.sh
+
+    - name: Upload Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        command: |
+          bash $HOME/script/upload.sh
+
+    - name: Send notif..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          export owner="@KangBatagorKeliling"
+          bash $HOME/script/notif.sh
+
+############################################################
+
+  deploy-whyred:
+    name: Redmi Note 5 pro
+    runs-on: ubuntu-latest
+    if: github.actor == 'zacky46'
+    timeout-minutes: 340
+    steps:
+    - name: Clone Script..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          mkdir -p $HOME/script
+          cd $HOME/script
+          export device="whyred"
+          rm -rf *
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/sync.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/building.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/upload.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/script/notif.sh
+          wget https://raw.githubusercontent.com/NFS-project/Rom-Builder/main/$device/build_rom.sh
+
+    - name: Sync Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/sync.sh
+
+    - name: Building Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          bash $HOME/script/building.sh
+
+    - name: Upload Rom..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        command: |
+          bash $HOME/script/upload.sh
+
+    - name: Send notif..
+      uses: NFS86/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        pass: ${{ secrets.PASSWORD }}
+        args: "-tt"
+        command: |
+          export owner="@zacky_ma"
+          bash $HOME/script/notif.sh
