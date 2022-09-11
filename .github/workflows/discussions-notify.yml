@@ -28,7 +28,7 @@ jobs:
             }
             
             TgNotify "
-            #DISCUSSION
+            #Rom-Builder [Discussion]
             *New Discussion Started at* [${{ github.repository }}](https://github.com/${{ github.repository }})
             *Title:* \`${DIS_TITLE}\`
             *User:* [${{ github.actor }}](https://github.com/${{ github.actor }})
