@@ -2,6 +2,7 @@ name: Rom-Builder
 
 on:
   push:
+  pull_request:
 
 jobs:
   deploy-spes:
