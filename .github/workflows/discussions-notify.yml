@@ -28,7 +28,7 @@ jobs:
             }
             
             TgNotify "
-            #ROM_BUILDER_DISCUSSION
+            #ROMBUILDERDISCUSSION
             ━━━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━━━
             *➠ New Discussion Started at* [${{ github.repository }}](https://github.com/${{ github.repository }})
             *➠ Title :-* \`${DIS_TITLE}\`
