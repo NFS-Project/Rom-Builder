@@ -28,8 +28,10 @@ jobs:
             }
             
             TgNotify "
-            #Rom-Builder [Discussion]
-            *New Discussion Started at* [${{ github.repository }}](https://github.com/${{ github.repository }})
-            *Title:* \`${DIS_TITLE}\`
-            *User:* [${{ github.actor }}](https://github.com/${{ github.actor }})
-            *Discussion URL:* [Here](${DIS_URL})" &> /dev/null
+            #ROM_BUILDER_DISCUSSION
+            ━━━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━━━
+            *➠ New Discussion Started at* [${{ github.repository }}](https://github.com/${{ github.repository }})
+            *➠ Title :-* \`${DIS_TITLE}\`
+            *➠ User :-* [${{ github.actor }}](https://github.com/${{ github.actor }})
+            *➠ Discussion URL :-* [Here](${DIS_URL})
+            ━━━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━━━" &> /dev/null
