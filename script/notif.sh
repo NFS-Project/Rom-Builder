@@ -17,7 +17,7 @@ DATE_L="$(date +%d\ %B\ %Y)"
 DATE_S="$(date +"%T")"
 TXT_CAPTION="<b>✅ Build Completed Successfully ✅</b>
 
-━━━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━━━
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 <b>🚀 Rom Name :- $(grep init $HOME/script/build_rom.sh -m 1 | cut -d / -f 4)</b>
 <b>📁 File Name :-</b> <code>$(cd $HOME/$rom_name/out/target/product/$device && ls *zip)</code>
 <b>⏰ Timer Build :- $(grep "####" $HOME/$rom_name/build.log -m 1 | cut -d '(' -f 2)</b>
@@ -26,7 +26,7 @@ TXT_CAPTION="<b>✅ Build Completed Successfully ✅</b>
 <b>📥 Download Link :-</b> <a href=\"${DL_LINK}\">Here</a>
 <b>📅 Date :- $(date +%d\ %B\ %Y)</b>
 <b>🕔 Time Zone :- $(date +%T)</b>
-━━━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━━━
+━━━━━━━━━ஜ۩۞۩ஜ━━━━━━━━
 
 <b>🙎 Developers :- $owner</b>"
 TG_TEXT="${TXT_CAPTION}"
