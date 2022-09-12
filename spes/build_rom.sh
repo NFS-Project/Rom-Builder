@@ -18,4 +18,4 @@ curl -s -X POST "https://api.telegram.org/bot${tg_token}/sendMessage" -d chat_id
 
 m banana
  
-# end - remove gapps
+# end - rebuild
