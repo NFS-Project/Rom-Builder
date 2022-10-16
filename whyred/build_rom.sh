@@ -1,16 +1,16 @@
 # sync rom
-repo init --depth=1 --no-repo-verify -u https://github.com/bananadroid/android_manifest.git -b 12 default,-mips,-darwin,-notdefault
-#git clone https://github.com/NFS-Project/local_manifest --depth 1 -b banana-12 .repo/local_manifests
+repo init --depth=1 --no-repo-verify -u https://github.com/NusantaraProject-ROM/android_manifest -b 10 default,-mips,-darwin,-notdefault
+git clone https://github.com/yanzszs/local_manifest --depth 1 -b main .repo/local_manifests
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # build rom
 source build/envsetup.sh
 export TZ=Asia/Jakarta
-export BUILD_USERNAME=zacky
-export BUILD_HOSTNAME=ubuntu-22.04
+export BUILD_USERNAME=yanzszs
+export BUILD_HOSTNAME=cirrus-ci
 export ALLOW_MISSING_DEPENDENCIES=true
 export WITH_GAPPS=true
-lunch banana_ginkgo-user
+lunch nad_ginkgo-userdebug
 curl -s -X POST "https://api.telegram.org/bot${tg_token}/sendMessage" -d chat_id="${tg_id}" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="===================================%0A<b>($(grep unch $HOME/script/build_rom.sh -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1))</b> Building Started%0A<b>ROM:</b> $rom_name%0A$(echo "${var_cache_report_config}")"
-mka banana -j8
+mka nad -j8
 # end
